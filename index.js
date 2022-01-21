@@ -36,6 +36,11 @@ const start = () => {
       );
       return bot.sendMessage(chatId, `wellcome ${msg.chat.first_name}`);
     }
+    if (text === "/delete") {
+      for (let i = 0; i < 101; i++) {
+        bot.deleteMessage(msg.chat.id, msg.message_id - i);
+      }
+    }
     if (text === "/xona") {
       return await setTimeout(async () => {
         for (let i = 0; i <= 20; i++) {
