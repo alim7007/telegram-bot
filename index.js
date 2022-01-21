@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-
+let port = process.env.PORT || 8080;
 const TelegramApi = require("node-telegram-bot-api");
 require("dotenv").config();
 const { gameOptions, againOptions } = require("./options");
@@ -78,6 +78,6 @@ const start = () => {
 
 start();
 
-app.listen(3000, "0.0.0.0", function () {
-  console.log("Listening on Port 3000");
+app.listen(port, () => {
+  console.log(`Listening on Port ${port}`);
 });
