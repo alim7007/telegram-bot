@@ -37,14 +37,13 @@ const start = () => {
       return bot.sendMessage(chatId, `wellcome ${msg.chat.first_name}`);
     }
     if (text === "/xona") {
-      setTimeout(async () => {
+      return setTimeout(async () => {
         for (let i = 0; i <= 20; i++) {
           await bot.sendMessage(chatId, `bra xona bachajon`);
           if (i === 20) {
             return bot.sendMessage(chatId, `basay`);
           }
         }
-        return;
       }, 2000);
     }
     if (text === "/info") {
