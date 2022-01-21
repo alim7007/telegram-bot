@@ -44,6 +44,7 @@ const start = () => {
             return bot.sendMessage(chatId, `basay`);
           }
         }
+        return;
       }, 2000);
     }
     if (text === "/info") {
