@@ -21,6 +21,7 @@ const start = () => {
     { command: "/start", description: "initial greating" },
     { command: "/info", description: "user info" },
     { command: "/game", description: "guess number game" },
+    { command: "/xona", description: "xona roi kadan" },
   ]);
 
   bot.on("message", async (msg) => {
@@ -31,9 +32,19 @@ const start = () => {
     if (text === "/start") {
       await bot.sendSticker(
         chatId,
-        `https://tlgrm.ru/_/stickers/ea5/382/ea53826d-c192-376a-b766-e5abc535f1c9/1.webp`
+        `https://tlgrm.eu/_/stickers/4dd/300/4dd300fd-0a89-3f3d-ac53-8ec93976495e/1.webp`
       );
       return bot.sendMessage(chatId, `wellcome ${msg.chat.first_name}`);
+    }
+    if (text === "/xona") {
+      setTimeout(async () => {
+        for (let i = 0; i <= 20; i++) {
+          await bot.sendMessage(chatId, `bra xona bachajon`);
+          if (i === 20) {
+            return bot.sendMessage(chatId, `basay`);
+          }
+        }
+      }, 2000);
     }
     if (text === "/info") {
       return bot.sendMessage(
@@ -54,15 +65,11 @@ const start = () => {
       return startGame(chatId);
     }
     if (data == chats[chatId]) {
-      return bot.sendMessage(
-        chatId,
-        `${data}=> and congrats, that is correct number`,
-        againOptions
-      );
+      return bot.sendMessage(chatId, `${data} is correct`, againOptions);
     } else {
       return bot.sendMessage(
         chatId,
-        `${data}=> unfortunately, that is incorrect`,
+        `${data} is incorrect (--${chats[chatId]}--)`,
         againOptions
       );
     }
