@@ -37,7 +37,7 @@ const start = () => {
       return bot.sendMessage(chatId, `wellcome ${msg.chat.first_name}`);
     }
     if (text === "/xona") {
-      return await setTimeout(async () => {
+      return awaitsetTimeout(async () => {
         for (let i = 0; i <= 20; i++) {
           await bot.sendMessage(chatId, `bra xona bachajon`);
           if (i === 20) {
@@ -78,6 +78,6 @@ const start = () => {
 
 start();
 
-app.listen(port, () => {
+app.listen(port, "0.0.0.0", () => {
   console.log(`Listening on Port ${port}`);
 });
